@@ -12,6 +12,7 @@ import utility.SQLCommand;
 
 public class InputBean implements SQLCommand{
 	private String secretCode;
+	private String logicCode;
 
 	public String getSecretCode() {
 		return secretCode;
@@ -20,10 +21,15 @@ public class InputBean implements SQLCommand{
 	public void setSecretCode(String secretCode) {
 		this.secretCode = secretCode;
 	}
-	//Check Secret code
-	public void checkUserInput(ServletContext context){
 	
+	public String getLogicCode() {
+		return logicCode;
 	}
+
+	public void setLogicCode(String logicCode) {
+		this.logicCode = logicCode;
+	}
+
 	
 	//SQL Operations
 	public Connection getConnection(String jdbcUrl,
@@ -41,7 +47,22 @@ public class InputBean implements SQLCommand{
 	}
 		return connection;
 	}
-	
+	//Insert Records
+	public void insertRecord(Connection connection){
+		//Connection connection = getConnection();
+		 if(connection !=null){
+			 try{
+				
+				 
+				 PreparedStatement pstmnt = connection.prepareStatement(INSERT_REC);
+				 pstmnt.setString(1, this.secretCode);
+				 
+				 pstmnt.executeUpdate();
+			 }catch(SQLException sqle){
+				 throw new RuntimeException();
+			 }
+		 }
+	}
 	//View Records
 	public ResultSet getAllRecords(Connection connection){
 		ResultSet records = null;

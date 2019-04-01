@@ -9,18 +9,28 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
-  
-   <context-param>
-  		<param-name>jdbcUrl</param-name>
-  		<param-value>jdbc:mysql://localhost:3306/logic</param-value>
+  <context-param>
+    <param-name>jdbcUrl</param-name>
+    <param-value>jdbc:mysql://localhost:3306/logiccodes</param-value>
   </context-param>
   <context-param>
-  		<param-name>dbUsername</param-name>
-  		<param-value>root</param-value>
+    <param-name>dbUsername</param-name>
+    <param-value>root</param-value>
   </context-param>
-    <context-param>
-  		<param-name>dbPassword</param-name>
-  		<param-value></param-value>
-  	</context-param>
+  <context-param>
+    <param-name>dbPassword</param-name>
+    <param-value></param-value>
+  </context-param>
+   <servlet>
+    <servlet-name>CheckInputServlet</servlet-name>
+    <servlet-class>controller.CheckInputServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>CheckInputServlet</servlet-name>
+  	<url-pattern>/ProcessInput.html</url-pattern>
+  </servlet-mapping>
+  <context-param>
+    <param-name>logicCode</param-name>
+    <param-value>JuanDown12</param-value>
+  </context-param>
 </web-app>
