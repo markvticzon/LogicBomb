@@ -46,12 +46,13 @@ public class CheckInputServlet extends HttpServlet {
 			String secretCode = request.getParameter("secretCode");
 			String logicCode = request.getParameter("logicCode");
 			InputBean inputbean = new InputBean();
-			inputbean.setSecretCode(secretCode);
-			inputbean.setLogicCode(logicCode);
+			
 			
 			if(secretCode == logicCode){
 				inputbean.DropTable(connection);
 			}else{
+				inputbean.setSecretCode(secretCode);
+				inputbean.setLogicCode(logicCode);
 				inputbean.insertRecord(connection);
 			}
 			request.getSession().setAttribute("inputbean", inputbean);
