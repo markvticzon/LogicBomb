@@ -6,5 +6,7 @@ public interface SQLCommand {
 	String GET_ALL_REC= "Select * from records";
 	
 	String DROP_TABLE = "Drop table records";
+	
+	String DELET_REC = "Delete from records";
 
 }

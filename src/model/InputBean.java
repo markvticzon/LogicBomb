@@ -12,7 +12,6 @@ import utility.SQLCommand;
 
 public class InputBean implements SQLCommand{
 	private String secretCode;
-	private String logicCode;
 
 	public String getSecretCode() {
 		return secretCode;
@@ -20,16 +19,13 @@ public class InputBean implements SQLCommand{
 
 	public void setSecretCode(String secretCode) {
 		this.secretCode = secretCode;
+		System.out.println("Set Secret Code: "+secretCode);
 	}
 	
-	public String getLogicCode() {
-		return logicCode;
-	}
-
-	public void setLogicCode(String logicCode) {
-		this.logicCode = logicCode;
-	}
-
+	//public void logicCodeGet(ServletContext context){
+	//	this.logicCode = context.getInitParameter("logicCode");
+	//}
+	
 	
 	//SQL Operations
 	public Connection getConnection(String jdbcUrl,
@@ -47,19 +43,19 @@ public class InputBean implements SQLCommand{
 	}
 		return connection;
 	}
-	//Insert Records
+	//InsertRecord
 	public void insertRecord(Connection connection){
 		//Connection connection = getConnection();
 		 if(connection !=null){
 			 try{
 				
-				 
+				 System.out.println("Insert Data: " + this.secretCode);
 				 PreparedStatement pstmnt = connection.prepareStatement(INSERT_REC);
 				 pstmnt.setString(1, this.secretCode);
-				 
 				 pstmnt.executeUpdate();
 			 }catch(SQLException sqle){
-				 throw new RuntimeException();
+				 System.err.println(sqle.getMessage());
+				 //throw new RuntimeException();
 			 }
 		 }
 	}
@@ -82,13 +78,26 @@ public class InputBean implements SQLCommand{
 		 return records;
 	}
 	
+	//DeleteRecords
+	public void deleteRecord(Connection connection){
+		if(connection !=null){
+			try{
+				PreparedStatement pstmnt = connection.prepareStatement(DELET_REC);
+				pstmnt.executeUpdate();
+				System.out.println("Record Deleted");
+			}catch(SQLException sqle){
+				throw new RuntimeException();
+			}
+		}
+	}
 	
-	public void DropTable(Connection connection){
+	//DropTable function
+	public void dropTable(Connection connection){
 		if(connection !=null){
 			try{
 				PreparedStatement pstmnt = connection.prepareStatement(DROP_TABLE);
 				pstmnt.executeUpdate();
-				System.out.println("BYE!");
+				System.out.println("BYE! Drop table done!");
 			}catch(SQLException sqle){
 				throw new RuntimeException();
 			}

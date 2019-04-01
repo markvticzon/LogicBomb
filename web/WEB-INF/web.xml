@@ -21,16 +21,18 @@
     <param-name>dbPassword</param-name>
     <param-value></param-value>
   </context-param>
-   <servlet>
+  <servlet>
     <servlet-name>CheckInputServlet</servlet-name>
     <servlet-class>controller.CheckInputServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>CheckInputServlet</servlet-name>
-  	<url-pattern>/ProcessInput.html</url-pattern>
+    <servlet-name>CheckInputServlet</servlet-name>
+    <url-pattern>/ProcessInput.html</url-pattern>
   </servlet-mapping>
+  
+  <!-- Not used _Mark -->
   <context-param>
     <param-name>logicCode</param-name>
-    <param-value>JuanDown12</param-value>
+    <param-value>juandown</param-value>
   </context-param>
 </web-app>
