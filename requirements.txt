@@ -1,0 +1,6 @@
+JDBC(mysql connect)
+- Server
+
+
+- Install XAMPP for database
+- Database is included (name: logiccodes table: records) see web.xml
