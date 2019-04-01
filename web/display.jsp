@@ -10,5 +10,8 @@
 
 <p>Code successfully inserted!</p>
 <a href="index.html"><button>Go Back</button></a>
+<form action="records.html">
+	<button type="submit" name="submit">View All Records</button>
+</form>
 </body>
 </html>

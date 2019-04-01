@@ -15,7 +15,7 @@ import model.InputBean;
 /**
  * Servlet implementation class ViewRecordsServlet
  */
-@WebServlet("/records.html")
+//@WebServlet("/records.html")
 public class ViewRecordsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

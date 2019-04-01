@@ -29,6 +29,14 @@
     <servlet-name>CheckInputServlet</servlet-name>
     <url-pattern>/ProcessInput.html</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>ViewRecordsServlet</servlet-name>
+    <servlet-class>controller.ViewRecordsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewRecordsServlet</servlet-name>
+    <url-pattern>/records.html</url-pattern>
+  </servlet-mapping>
   
   <!-- Not used _Mark -->
   <context-param>

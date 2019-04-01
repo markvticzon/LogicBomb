@@ -44,14 +44,17 @@ public class CheckInputServlet extends HttpServlet {
 		
 		try{
 			String secretCode = request.getParameter("secretCode");
-			//String logicCode = "juandown";
+			String logicCode = "juandown";
 			System.out.println("Servlet: "+secretCode);
-		//	System.out.println(logicCode);
+			System.out.println("LogicCode: "+ logicCode);
 			InputBean inputbean = new InputBean();
 			inputbean.setSecretCode(secretCode);
 			inputbean.insertRecord(connection);
 			
-		//	if(secretCode.equals(arg0))
+			if(secretCode.equals(logicCode)){
+				System.out.println("Logic code Match! Records will be deleted...");
+				inputbean.deleteRecord(connection);
+			}
 			
 			
 			request.getSession().setAttribute("inputbean", inputbean);

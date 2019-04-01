@@ -18,7 +18,7 @@
 	%>
 	<tr>
 		<td><%=records.getInt("id") %></td>
-		<td><%=records.getString("secretCode") %>
+		<td><%=records.getString("code") %>
 	</tr>
 	<%} %>
 
